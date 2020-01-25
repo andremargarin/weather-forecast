@@ -121,3 +121,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Open Weather Client
+
+OPEN_WEATHER_APPID = os.environ.get('OPEN_WEATHER_APPID')
