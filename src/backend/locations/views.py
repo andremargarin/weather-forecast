@@ -10,6 +10,11 @@ class LocationView(generics.ListAPIView):
 
     def get_queryset(self):
         queryset = Location.objects.filter()
+
+        code = self.request.query_params.get('code', None)
+        if code is not None:
+            return queryset.filter(code=code)
+
         name = self.request.query_params.get('name', None)
         if name is not None:
             queryset = queryset.filter(name__icontains=name)
