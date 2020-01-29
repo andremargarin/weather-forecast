@@ -1,6 +1,6 @@
 from django.urls import path
-from forecast.views import ForecastView
+from forecast.views import ForecastDetailView
 
 urlpatterns = [
-    path('forecast/', ForecastView.as_view()),
+    path('forecast/<int:location>/', ForecastDetailView.as_view(), name='forecast')
 ]

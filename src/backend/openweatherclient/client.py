@@ -21,11 +21,12 @@ class OpenWeatherClient:
 
         forecasts = []
         for item in response_json.get('list'):
-            forecast = {key: item['main'][key] for key in cls.main_keys}
+            forecast = {key: item.get('main', {}).get(key) for key in cls.main_keys}
             forecast['wind_speed'] = item.get('wind', {}).get('speed')
             forecast['wind_deg'] = item.get('wind', {}).get('deg')
             forecast['rain'] = item.get('rain', {}).get('3h')
             forecast['date'] = datetime.strptime(item.get('dt_txt'), '%Y-%m-%d %H:%M:%S')
             forecast['location_id'] = location_id
+            forecast['weather'] = item.get('weather')[0]['id']
             forecasts.append(forecast)
         return forecasts
