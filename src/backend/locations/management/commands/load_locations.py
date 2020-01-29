@@ -5,7 +5,7 @@ from django.core.management.base import BaseCommand
 from locations.models import Location
 
 
-class LoadLocations(BaseCommand):
+class Command(BaseCommand):
     help = 'Load locations'
 
     def handle(self, *args, **options):

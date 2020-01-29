@@ -16,7 +16,6 @@ class OpenWeatherClient:
         url = f'{cls.OPEN_WEATHER_API_URL}/forecast?APPID={settings.OPEN_WEATHER_APPID}&units=metric&id={id}'
         response = requests.get(url)
         response_json = response.json()
-
         location_id = response_json['city']['id']
 
         forecasts = []

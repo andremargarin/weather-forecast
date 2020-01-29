@@ -32,7 +32,7 @@ class ForecastDetailView(generics.ListAPIView):
     def get_queryset(self):
         queryset = super().get_queryset()
         location = self.kwargs.get('location')
-        date = self.request.query_params.get('date', '2020-01-27')
+        date = self.request.query_params.get('date')
 
         if date is None:
             date = datetime.now()
